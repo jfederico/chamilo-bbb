@@ -36,7 +36,7 @@ class bbb {
         $this->logout_url = api_get_path(WEB_PLUGIN_PATH).'bbb/listing.php';
         $this->table = Database::get_main_table('plugin_bbb_meeting');
 
-        if ($bbb_plugin == true) {
+        if ($bbb_plugin == "true") {
             $user_info = api_get_user_info();
             $this->user_complete_name = $user_info['complete_name'];
             $this->salt = $bbb_salt;
@@ -440,7 +440,7 @@ class bbb {
         $records =  BigBlueButtonBN::getRecordingsArray($id, $this->url, $this->salt);
         if (!empty($records)) {
             foreach ($records as $record) {
-error_log($record['recordID']);
+                error_log($record['recordID']);
                 if ($record['recordID'] == $record_id) {
                     if (is_array($record) && isset($record['recordID']) && isset($record['playbacks'])) {
                         foreach ($record['playbacks'] as $item) {
